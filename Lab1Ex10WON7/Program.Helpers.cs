@@ -1,15 +1,15 @@
 ﻿partial class Program
 {
-    static string ReadNumber(uint numarCifre)
+    static string ReadNumber(in uint NUMAR_CIFRE)
     {
         Console.WriteLine("Scrieti un numar de la tastatura pentru ai afisa suma cifrelor");
         var numarRaw=Console.ReadLine();
-        if (numarRaw!="" && numarRaw?[0].ToString()=="-")
+        if (numarRaw?[0].ToString()=="-")
             numarRaw=numarRaw.Substring(1);
-        if(numarRaw?.Length!=2 || !int.TryParse(numarRaw, out _))
+        if(numarRaw?.Length!=NUMAR_CIFRE || !int.TryParse(numarRaw, out _))
         {
             Console.WriteLine("Nu ati introdus datele in format valid, mai incercati");
-            return ReadNumber(numarCifre);
+            return ReadNumber(NUMAR_CIFRE);
         }
         return numarRaw;
     }
